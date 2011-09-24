@@ -18,7 +18,7 @@
 			<ul>
 			{% for key in keys %}
 				<li>
-				    {{key.fingerprint}} [<a href={% url delete_ssh_key %}/{{key.fingerprint}}/>{% trans "delete" %}</a>]
+				    {{key.fingerprint}} [<a href={% url delete_ssh_key %}{{key.fingerprint}}/>{% trans "delete" %}</a>]
 				</li>
 			{% endfor %}
 			</ul>

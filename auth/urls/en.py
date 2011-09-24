@@ -40,20 +40,13 @@ urlpatterns = patterns('',
         { 'extra_context': {'section': 'avatar'},
         'template': 'userprofile/avatar/done.html'},
         name='profile_avatar_crop_done'),
-<<<<<<< TREE
-        
+
     # SSH Keys
     url(r'^profile/ssh/key/$', manage_ssh_key, name='manage_ssh_key'),
     url(r'^profile/ssh/upload/$', upload_ssh_key, name='upload_ssh_key'),
     url(r'^profile/ssh/delete/$', delete_ssh_key, name='delete_ssh_key'),
     url(r'^profile/ssh/delete/(?P<key>[\w:]+)/$', delete_ssh_key),
-    
-=======
-    # SSH Keys
-    url(r'^profile/ssh/key/$', manage_ssh_key, name='manage_ssh_key'),
-    url(r'^profile/ssh/upload/$', upload_ssh_key, name='upload_ssh_key'),
-    url(r'^profile/ssh/delete/(?P<key>[\w:]+)/$', delete_ssh_key, name='delete_ssh_key'),
->>>>>>> MERGE-SOURCE
+
     # Account utilities
     url(r'^email/validation/$', email_validation, name='email_validation'),
     url(r'^email/validation/processed/$', direct_to_template,
