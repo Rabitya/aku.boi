@@ -45,6 +45,7 @@ def upload_ssh_key(request):
         form = SSHKeyUploadForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save(request.user)
+            return HttpResponseRedirect(reverse('manage_ssh_key'))
     else:
         form = SSHKeyUploadForm()
     context = RequestContext(request)
