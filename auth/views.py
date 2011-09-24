@@ -304,3 +304,4 @@ def email_validation_reset(request):
         response = "failed"
     return HttpResponseRedirect(reverse("email_validation_reset_response", 
             args=[response]))
+

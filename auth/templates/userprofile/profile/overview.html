@@ -90,6 +90,7 @@
 			<a href="{% url profile_edit_location %}">{% trans "Add location" %}</a>
 		{% else %}
 			<a href="{% url profile_edit_location %}">{% trans "Change location" %}</a>
-		{% endif %}
+		{% endif %}  <br />
+		<a href="{% url manage_ssh_key %}">{% trans "Manage SSH Key" %}</a>
 	</div>
 {% endblock %}

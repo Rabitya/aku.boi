@@ -17,13 +17,33 @@
 			{% if keys %}
 			<ul>
 			{% for key in keys %}
+<<<<<<< TREE
 				<li>{{key.fingerprint}} [<a href={% url profile_overview %}/{{key.fingerprint}}/>{% trans "delete" %}</li>
+=======
+<<<<<<< HEAD
+				<li>{{key.fingerprint}} [<a href={% url profile_overview %}/{{key.fingerprint}}/>{% trans "delete" %}</li>
+=======
+				<li>
+				    {{key.fingerprint}} [<a href={% url delete_ssh_key %}/{{key.fingerprint}}/>{% trans "delete" %}</a>]
+				</li>
+>>>>>>> Change: fix ssh urls
+>>>>>>> MERGE-SOURCE
 			{% endfor %}
 			</ul>
 			{% else %}
 			<p>{% trans "You have no ssh keys" %}</p>
 			{% endif %}
+<<<<<<< TREE
 			<p>{% trans "Upload new ssh key" %}</p>
+=======
+<<<<<<< HEAD
+			<p>{% trans "Upload new ssh key" %}</p>
+=======
+			<p>
+			    <a href={% url upload_ssh_key %}>{% trans "Upload new ssh key" %}</a>
+			</p>
+>>>>>>> Change: fix ssh urls
+>>>>>>> MERGE-SOURCE
 		</fieldset>
 {% endblock %}
 
