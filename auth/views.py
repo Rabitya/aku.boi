@@ -259,6 +259,8 @@ def email_validation(request):
     """
     E-mail Change form
     """
+    c = {}
+    c.update(csrf(request))
     if request.method == 'POST':
         form = EmailValidationForm(request.POST)
         if form.is_valid():
