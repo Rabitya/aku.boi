@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 from django.contrib.auth import views as auth_views
 from django.views.generic.simple import direct_to_template
 from auth.views import *
+from profile.views import *
 
 urlpatterns = patterns('',
     # Private profile
@@ -37,6 +38,10 @@ urlpatterns = patterns('',
         { 'extra_context': {'section': 'avatar'},
         'template': 'userprofile/avatar/done.html'},
         name='profile_avatar_crop_done'),
+    # SSH Keys
+    url(r'^profile/ssh/key/$', manage_ssh_key, name='manage_ssh_key'),
+    url(r'^profile/ssh/upload/$', upload_ssh_key, name='upload_ssh_key'),
+    url(r'^profile/ssh/delete/(?P<key>[\w:]+)/$', delete_ssh_key, name='delete_ssh_key'),
     # Account utilities
     url(r'^email/validation/$', email_validation, name='email_validation'),
     url(r'^email/validation/processed/$', direct_to_template,
