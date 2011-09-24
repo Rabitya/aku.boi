@@ -4,23 +4,25 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ MEDIA_URL}}css/blueprint/screen.css" type="text/css" media="screen, projection" />
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print" />
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
   	<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL}}css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-		<link rel="stylesheet" href="{{ MEDIA_URL}}css/django-profile.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="{{ MEDIA_URL}}css/django-profile.css" type="text/css" media="screen, projection" />
     {% block extracss %}{% endblock %}
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.min.js"></script>
     {% block extrajs %}{% endblock %}
-		<meta name="robots" content="{% block robots %}index,follow{% endblock %}" />
-		{% block extrahead %}{% endblock extrahead %}
+	<meta name="robots" content="{% block robots %}index,follow{% endblock %}" />
+	{% block extrahead %}{% endblock extrahead %}
+	<link rel="shortcut icon" href="/media/images/blankon.ico" type="image/x-icon" />
 </head>
 
 <body>
 	<div class="container">
 		<div id="header">
 			<div class="span-16">
-				<h1><a href="/"><strong>{% trans "Aku - BlankOn Authentication" %}</strong></a></h1>
-				<p>{% trans "One Login for Your Accounts" %}</p>
+			    <a href="/"><img border="0" src="/media/images/blankon.png"  alt="Go to start page" /></a>
+				<!--h1><a href="/"><strong>{% trans "Aku - BlankOn Authentication" %}</strong></a></h1-->
+				<p>{% trans "BlankOn Authentication - One Login for Your Accounts" %}</p>
 			</div>
 			<div class="span-8 last">
 				<ul class="hmenu large three">
@@ -47,6 +49,12 @@
 				</div><!-- END content-main -->
 			{% endblock %}
 		</div><!-- END content -->
+		<div id="footer">
+		    <br />
+		    <hr />
+		    <a href="http://www.blankonlinux.or.id">Tim Pengembang BlankOn</a> |
+		    <a href="/privacy.html">Kebijakan Privasi</a>
+		</div>
 	</div>
 </body>
 </html>
