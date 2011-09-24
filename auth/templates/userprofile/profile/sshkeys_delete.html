@@ -14,16 +14,32 @@
 {% block content %}
 		<fieldset>
 			<legend>{% trans "List of your ssh key" %}</legend>
-			{% if keys %}
-			<ul>
-			{% for key in keys %}
-				<li>{{key.fingerprint}} [<a href={% url profile_overview %}/{{key.fingerprint}}/>{% trans "delete" %}</li>
-			{% endfor %}
-			</ul>
+			{% if key %}
+			{% if form.success %}
+			<label>{% trans "Success" %}</label>
+			<p>{% trans "You have successfully deleted the SSH key. You can add another keys if you want <a href={% url manage_ssh_key %}>here</a>.</p>
 			{% else %}
-			<p>{% trans "You have no ssh keys" %}</p>
+			{% if form.deleting %}
+			<label>{% trans "Deletion failed" %}</label>
+			<p>{% trans "Your request to delete the ssh key is failed." %}</p>
 			{% endif %}
-			<p>{% trans "Upload new ssh key" %}</p>
+			<form action="{% url delete_ssh_key %}" enctype="multipart/form-data" method="POST">
+			{% if form.file.errors %}
+			<label>{{ form.file.errors }}</label>
+			{% endif %}
+			<p>{% trans "Are you sure to delete this key?" %}</p>
+			<ul>
+			<li>{% trans "Fingerprint"%}: {{ key }}{{ form.fingerprint }}</li>
+			<li>{% trans "Text"%}: {{ form.key}}</li>
+			</ul>
+			<p><input type=submit value="{% trans "Yes"%}"/></p>
+			</form>
+			<p>{% trans "Click <a href={% url manage_ssh_key %}>here</a> to cancel." %}</p>
+			{% endif %}
+			{% else %}
+			<label>{% trans "Delete ssh key" %}</label>
+			<p>{% trans "You have not specify the key you want to delete. Please go <a href={% url delete_ssh_key %}>here</a>.</p>
+			{% endif %}
 		</fieldset>
 {% endblock %}
 
