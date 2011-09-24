@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
 from auth.models import BaseProfile
 
@@ -74,7 +75,7 @@ class Profile(BaseProfile):
 
 class SSHKeys(models.Model):
     user = models.ForeignKey(User, verbose_name=_('user'))
-    fingerprint = models.CharField(_('fingerprint'),  max_length=48, unique=True)
+    fingerprint = models.CharField(_('fingerprint'), max_length=48, unique=True)
     key = models.TextField(verbose_name=_('key'))
     def __unicode__(self):
         return "SSH Keys for user %s" % self.user
