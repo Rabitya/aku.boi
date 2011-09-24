@@ -22,6 +22,7 @@ import Image, ImageFilter
 import os.path
 
 AVATAR_SIZES = (128, 96, 64, 48, 32, 24, 16)
+STATUS_CHOICES = ( ('Y', _('Yes')), ('N', _('No')),)
 
 class BaseProfile(models.Model):
     """
@@ -29,10 +30,11 @@ class BaseProfile(models.Model):
     """
     user = models.ForeignKey(User, unique=True)
     date = models.DateTimeField(default=datetime.datetime.now)
-    country = CountryField(null=True, blank=True)
+    country = CountryField(null=True, blank=True, default='ID')
     latitude = models.DecimalField(max_digits=10, decimal_places=6, blank=True, null=True)
     longitude = models.DecimalField(max_digits=10, decimal_places=6, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='N')
     class Meta:
         abstract = True
     def has_avatar(self):

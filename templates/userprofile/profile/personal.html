@@ -21,8 +21,9 @@
 	<form class="personal" action="{{ request.path_info }}" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
 	<fieldset>
-		<legend>{% trans "Edit your personal information" %}</legend>
+		<legend>{% trans "BlankOn User Survey" %}</legend>
 		{{ form.as_p }}	
+		<input id="id_status" type="hidden" name="status" value="Y" />
 	</fieldset>
 	<input type="submit" value="{% trans 'Save' %}" />
 	</form>
@@ -30,8 +31,8 @@
 
 {% block content-related %}
   <div class="box">
-    <h3>{% trans "Personal information" %}</h3>
-    <p>{% trans "Insert some information about you" %}.</p>
+    <h3>{% trans "BlankOn user survey" %}</h3>
+    <p>{% trans "Please help us to get information about BlankOn Linux user. Please refer to Privacy Policy to know more about this project." %}.</p>
   </div>
 {% endblock %}
 

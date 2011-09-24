@@ -133,7 +133,7 @@ def personal(request):
     else:
         form = ProfileForm(instance=profile)
     template = "userprofile/profile/personal.html"
-    data = { 'section': 'personal', 'GOOGLE_MAPS_API_KEY': GOOGLE_MAPS_API_KEY, 'form': form }
+    data = { 'section': 'personal', 'GOOGLE_MAPS_API_KEY': GOOGLE_MAPS_API_KEY, 'form': form, 'profile': profile }
     return render_to_response(template, data, context_instance=RequestContext(request))
 
 @login_required
