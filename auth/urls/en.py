@@ -4,7 +4,6 @@ from django.contrib.auth import views as auth_views
 from django.views.generic.simple import direct_to_template
 from profile.views import *
 from auth.views import *
-from profile.views import *
 
 urlpatterns = patterns('',
     # Private profile
