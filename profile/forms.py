@@ -2,10 +2,12 @@ from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
-from auth.models importSSHKeys
+from profile.models import SSHKeys
 from subprocess import Popen, PIPE
 import tempfile
 import os
+
+attrs_dict = { 'class': 'required' }
 
 class SSHKeysForm(forms.Form):
     deleting = False

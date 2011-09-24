@@ -2,7 +2,9 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib.auth import views as auth_views
 from django.views.generic.simple import direct_to_template
+from profile.views import *
 from auth.views import *
+from profile.views import *
 
 urlpatterns = patterns('',
     # Private profile
@@ -25,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^profile/getcountry_info/(?P<lat>[0-9\.\-]+)/(?P<lng>[0-9\.\-]+)/$',
         fetch_geodata,
         name='profile_geocountry_info'),
+        
     # Avatars
     url(r'^profile/edit/avatar/delete/$', avatardelete,
         name='profile_avatar_delete'),
@@ -37,6 +40,20 @@ urlpatterns = patterns('',
         { 'extra_context': {'section': 'avatar'},
         'template': 'userprofile/avatar/done.html'},
         name='profile_avatar_crop_done'),
+<<<<<<< TREE
+        
+    # SSH Keys
+    url(r'^profile/ssh/key/$', manage_ssh_key, name='manage_ssh_key'),
+    url(r'^profile/ssh/upload/$', upload_ssh_key, name='upload_ssh_key'),
+    url(r'^profile/ssh/delete/$', delete_ssh_key, name='delete_ssh_key'),
+    url(r'^profile/ssh/delete/(?P<key>[\w:]+)/$', delete_ssh_key),
+    
+=======
+    # SSH Keys
+    url(r'^profile/ssh/key/$', manage_ssh_key, name='manage_ssh_key'),
+    url(r'^profile/ssh/upload/$', upload_ssh_key, name='upload_ssh_key'),
+    url(r'^profile/ssh/delete/(?P<key>[\w:]+)/$', delete_ssh_key, name='delete_ssh_key'),
+>>>>>>> MERGE-SOURCE
     # Account utilities
     url(r'^email/validation/$', email_validation, name='email_validation'),
     url(r'^email/validation/processed/$', direct_to_template,
@@ -79,6 +96,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'django.contrib.auth.views.logout',
         {'template_name': 'userprofile/account/logout.html'},
         name='logout'),
+        
     # Registration
     url(r'^register/$', register, name='signup'),
     url(r'^register/validate/$', direct_to_template,
@@ -87,6 +105,7 @@ urlpatterns = patterns('',
     url(r'^register/complete/$', direct_to_template,
         {'template': 'userprofile/account/registration_done.html'},
         name='signup_complete'),
+        
     # Users public profile
     url(r'^profile/(?P<username>.+)/$', public, name='profile_public'),
 )

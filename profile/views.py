@@ -17,7 +17,7 @@ from profile.forms import SSHKeysForm, SSHKeyUploadForm
 from profile.models import SSHKeys
 
 @login_required
-def manage_ssh_keys(request):
+def manage_ssh_key(request):
     keys = SSHKeys.objects.filter(user=request.user)
     context = RequestContext(request)
     return render_to_response("userprofile/profile/sshkeys_manage.html", { 'keys': keys }, context_instance=context)

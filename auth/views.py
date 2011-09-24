@@ -259,6 +259,8 @@ def email_validation(request):
     """
     E-mail Change form
     """
+    c = {}
+    c.update(csrf(request))
     if request.method == 'POST':
         form = EmailValidationForm(request.POST)
         if form.is_valid():
@@ -302,3 +304,4 @@ def email_validation_reset(request):
         response = "failed"
     return HttpResponseRedirect(reverse("email_validation_reset_response", 
             args=[response]))
+

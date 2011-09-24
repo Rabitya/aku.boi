@@ -37,7 +37,7 @@ class ProfileForm(forms.ModelForm):
     """
     class Meta:
         model = Profile
-        exclude = ('date', 'location', 'latitude', 'longitude', 'country', 'user', 'public')
+        exclude = ('date', 'location', 'latitude', 'longitude', 'country', 'user', 'public', 'status')
 
 class PublicFieldsForm(forms.ModelForm):
     """
