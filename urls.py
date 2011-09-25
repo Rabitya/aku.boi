@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     #dynamic page
     url(r'^o/', include('openid_provider.urls')),
     url(r'^accounts/', include('auth.urls')),
+    (r'^admin/jsi18n/$', 'django.views.i18n.javascript_catalog'),
     (r'^admin/', include(admin.site.urls)),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^media/(?P<path>.*)', 'django.views.static.serve', {'document_root': 'media'}),
