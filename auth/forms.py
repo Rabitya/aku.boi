@@ -11,6 +11,7 @@ from django.contrib.admin import widgets
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist, ImproperlyConfigured
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.forms import ModelForm
 from django.utils.translation import ugettext as _
 from auth.models import EmailValidation
 
