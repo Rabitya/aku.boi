@@ -44,7 +44,7 @@ class PublicFieldsForm(forms.ModelForm):
     """
     Public Fields of the Profile Form. Composed by all the Profile model fields.
     """
-    mydate = forms.DateField(widget=widgets.AdminDateWidget)
+    birthdate = forms.DateField(widget=widgets.AdminDateWidget)
     class Meta:
         model = Profile
         exclude = ('date', 'user', 'public')
