@@ -6,18 +6,12 @@
 {% block robots %}noindex,nofollow{% endblock %}
 
 {% block extracss %}
-<link rel="stylesheet" type="text/css" href="/media/admin/css/widgets.css"/>
-<link rel="stylesheet" type="text/css" href="/media/admin/css/forms.css"/>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/ui.datepicker.css" type="text/css" />
 {% endblock %}
 
 {% block extrajs %}
-<script type="text/javascript" src="/admin/jsi18n/"></script>
-<script type="text/javascript" src="/media/admin/js/core.js"></script>
-<script type="text/javascript" src="/media/admin/js/admin/RelatedObjectLookups.js"></script> 
-{{ form.media }}
-<script type="text/javascript">
-window.__admin_media_prefix__ = "{% filter escapejs %}{% admin_media_prefix %}{% endfilter %}";
-</script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/ui.datepicker.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.personal.js"></script>
 {% endblock %}
 
 {% block nav-main %}
