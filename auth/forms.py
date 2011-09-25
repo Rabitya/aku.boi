@@ -7,6 +7,7 @@ Form configuration for Aku authentication
 from django import forms
 from django.db import models
 from django.conf import settings
+from django.contrib.admin import widgets
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist, ImproperlyConfigured
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -43,6 +44,7 @@ class PublicFieldsForm(forms.ModelForm):
     """
     Public Fields of the Profile Form. Composed by all the Profile model fields.
     """
+    mydate = forms.DateField(widget=widgets.AdminDateWidget)
     class Meta:
         model = Profile
         exclude = ('date', 'user', 'public')

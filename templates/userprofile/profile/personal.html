@@ -5,12 +5,13 @@
 {% block robots %}noindex,nofollow{% endblock %}
 
 {% block extracss %}
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/ui.datepicker.css" type="text/css" />
+{{ form.media }}
 {% endblock %}
 
 {% block extrajs %}
-<script type="text/javascript" src="{{ MEDIA_URL }}js/ui.datepicker.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.personal.js"></script>
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/media/admin/js/core.js"></script>
+<script type="text/javascript" src="/media/admin/js/admin/RelatedObjectLookups.js"></script> 
 {% endblock %}
 
 {% block nav-main %}
