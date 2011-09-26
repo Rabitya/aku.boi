@@ -34,7 +34,7 @@ class BaseProfile(models.Model):
     latitude = models.DecimalField(max_digits=10, decimal_places=6, blank=True, null=True)
     longitude = models.DecimalField(max_digits=10, decimal_places=6, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True)
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='N')
+    status = models.CharField(_('join survey?'), max_length=1, choices=STATUS_CHOICES, default='N')
     class Meta:
         abstract = True
     def has_avatar(self):
