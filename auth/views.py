@@ -125,6 +125,8 @@ def personal(request):
     c = {}
     c.update(csrf(request))
     profile, created = Profile.objects.get_or_create(user=request.user)
+    if profile.status == "Y":
+        return HttpResponseRedirect(reverse("overview"))
     if request.method == "POST":
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
